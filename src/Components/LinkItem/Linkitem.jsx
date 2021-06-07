@@ -1,14 +1,12 @@
 import './LinkItem.scss';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 export default function LinkItem(props) {
-  console.log(props);
-  const { id, to, text, className, activeLink, setActive } = props;
-  console.log(className + (id === activeLink ? " menu__item-active" : ""));
+  const { to, text, className } = props;
   return (
-    <Link onClick={() => setActive(id)} className={className + (id === activeLink ? " menu__item-active" : "") } to={to}>{ text }</Link>
+    <NavLink className={className} activeClassName={'menu__item-active'} exact to={to}>{ text }</NavLink>
   )
 }
 
@@ -16,7 +14,5 @@ LinkItem.propTypes = {
   id: PropTypes.number.isRequired,
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  activeLink: PropTypes.number.isRequired,
-  setActive: PropTypes.func.isRequired
 }
 

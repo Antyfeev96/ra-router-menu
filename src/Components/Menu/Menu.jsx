@@ -28,21 +28,12 @@ export default function Menu() {
       to: '/ra-router-menu/forza',
       text: 'Forza Karting',
       className: 'menu__item',
-    }],
-    activeLink: 1
+    }]
   });
-
-  const setActive = id => {
-    if (id === data.activeLink) return false;
-    setData((prev) => ({
-      ...prev, 
-      activeLink: id 
-    }));
-  };
 
   return (
     <nav className="menu">
-      {data.links.map(item => <LinkItem setActive={setActive} key={item.id} activeLink={data.activeLink} {...item} />)}
+      {data.links.map(item => <LinkItem key={item.id} {...item} />)}
     </nav>
   )
 }
